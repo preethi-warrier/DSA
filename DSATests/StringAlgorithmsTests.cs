@@ -72,8 +72,35 @@ namespace StringManipulation.Tests
             Assert.IsNull(StringAlgorithms.ReverseSentence(input));
 
             input = "";
-            Assert.AreEqual(input,StringAlgorithms.ReverseSentence(input));
+            Assert.AreEqual(input, StringAlgorithms.ReverseSentence(input));
 
+        }
+
+        [TestMethod()]
+        public void FindCamelCaseWordsTest()
+        {
+            var input = "camelCaseString";
+            var actual = StringAlgorithms.FindCamelCaseWords(input);
+            Assert.AreEqual(3, actual);
+        }
+
+        [TestMethod()]
+        public void MinimumNumberTest()
+        {
+            var input = "passWord";
+            var actual = StringAlgorithms.MinimumNumber(8, input);
+            Assert.AreEqual<int>(2, actual);
+
+            input = null;
+            Assert.AreEqual(0, StringAlgorithms.MinimumNumber(2, input));
+        }
+
+        [TestMethod()]
+        public void AnagramTest()
+        {
+            var input = "aaabbb";
+            var actual = StringAlgorithms.Anagram(input);
+            Assert.AreEqual(3, actual);
         }
     }
 }
